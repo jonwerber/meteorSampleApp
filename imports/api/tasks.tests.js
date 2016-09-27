@@ -27,7 +27,7 @@ if (Meteor.isServer) {
                 const deleteTask = Meteor.server.method_handlers['tasks.remove'];
 
                 // Set up a fake method invocation that looks like what the method expects
-                const invocation = { userId };
+                const invocation = {userId};
 
                 // Run the method with `this` set to the fake invocation
                 deleteTask.apply(invocation, [taskId]);
@@ -37,3 +37,4 @@ if (Meteor.isServer) {
             });
         });
     });
+}
