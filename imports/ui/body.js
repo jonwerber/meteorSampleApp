@@ -16,9 +16,13 @@ Template.body.onCreated(function bodyOnCreated() {
 Template.body.helpers({
     tasks() {
         const instance = Template.instance();
-        if (instance.state.get('hideCompleted')) {
+        if (instance.state.get('hideCompleted') ) {
             // If hide completed is checked, filter tasks
+
             return Tasks.find({ checked: { $ne: true } }, { sort: { priority: 1 } });
+        } else  if (instance.state.get('showHighPriority')) {
+            // If show high priority is checked, filter tasks
+            return Tasks.find({ priority: { $eq: "1" } }, { sort: { priority: 1 } });
         }
         // Otherwise, return all of the tasks
         // Show newest tasks at the top
@@ -47,5 +51,9 @@ Template.body.events({
     },
     'change .hide-completed input'(event, instance) {
         instance.state.set('hideCompleted', event.target.checked);
+        console.log(instance.state.get('showHighPriority'));
+    },
+    'change .show-high-priority input'(event, instance) {
+        instance.state.set('showHighPriority', event.target.checked);
     },
 });

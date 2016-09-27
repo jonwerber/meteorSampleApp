@@ -1,11 +1,16 @@
 <body>
 <div class="container">
     <header>
-        <h1>Todo List ({{incompleteCount}})</h1>
+        <h1>todoListRemix ({{incompleteCount}})</h1>
 
         <label class="hide-completed">
             <input type="checkbox" />
             Hide Completed Tasks
+        </label>
+
+        <label class="show-high-priority">
+            <input type="checkbox" />
+            Only Urgent Tasks
         </label>
 
         {{> loginButtons}}
