@@ -15,6 +15,8 @@ if (Meteor.isServer) {
                 Tasks.remove({});
                 taskId = Tasks.insert({
                     text: 'test task',
+                    color: 'blue',
+                    priority: 4,
                     createdAt: new Date(),
                     owner: userId,
                     username: 'tmeasday',

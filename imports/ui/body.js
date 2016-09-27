@@ -18,11 +18,11 @@ Template.body.helpers({
         const instance = Template.instance();
         if (instance.state.get('hideCompleted')) {
             // If hide completed is checked, filter tasks
-            return Tasks.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
+            return Tasks.find({ checked: { $ne: true } }, { sort: { priority: 1 } });
         }
         // Otherwise, return all of the tasks
         // Show newest tasks at the top
-        return Tasks.find({}, { sort: { createdAt: -1 } });
+        return Tasks.find({}, { sort: { priority: 1 } });
     },
     incompleteCount() {
         return Tasks.find({ checked: { $ne: true } }).count();
@@ -36,7 +36,7 @@ Template.body.events({
 
         // Get value from form element
         const target = event.target;
-        const taskInfo = { text : target.text.value, color : target.color.value };
+        const taskInfo = { text : target.text.value, color : target.color.value, priority: target.priority.value };
 
         // Insert a task into the collection
         Meteor.call('tasks.insert', taskInfo);

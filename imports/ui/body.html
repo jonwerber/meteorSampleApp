@@ -13,10 +13,16 @@
         {{#if currentUser}}
             <form class="new-task">
                 <select name="color">
-                    <option value="blue" >blue</option>
-                    <option value="green">green</option>
-                    <option value="red" selected>red</option>
-                    <option value="orange">orange</option>
+                    <option value="#1B83DE" >blue</option>
+                    <option value="#1DB534" selected>green</option>
+                    <option value="#DE4B1B" >red</option>
+                    <option value="#DE721B">orange</option>
+                </select>
+                <select name="priority">
+                    <option value="1" >urgent</option>
+                    <option value="2">high</option>
+                    <option value="3" selected>normal</option>
+                    <option value="4">low</option>
                 </select>
                 <input type="text" name="text" placeholder="Type to add new tasks" />
 

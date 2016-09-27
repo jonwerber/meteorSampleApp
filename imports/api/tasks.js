@@ -29,6 +29,7 @@ Meteor.methods({
         Tasks.insert({
             text: taskInfo.text,
             color: taskInfo.color,
+            priority: taskInfo.priority,
             createdAt: new Date(),
             owner: this.userId,
             username: Meteor.users.findOne(this.userId).username,
