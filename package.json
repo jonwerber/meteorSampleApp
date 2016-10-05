@@ -1,6 +1,12 @@
 {
-  "name": "sample-app",
-  "private": true,
+  "name": "todo-jlw",
+  "private": false,
+  "description": "simple todo app",
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/jonwerber/meteorSampleApp.git"
+  },
+
   "scripts": {
     "start": "meteor run"
   },
